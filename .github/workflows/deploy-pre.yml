@@ -1,0 +1,23 @@
+name: Automated File Update
+on:
+  repository_dispatch:
+    types: [update-file-event]
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Make changes
+        run: |
+          echo "New content" > file.txt
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add -A
+          git commit -m "Automated update" || exit 0  # This will exit with 0 if there's nothing to commit
+          git push
