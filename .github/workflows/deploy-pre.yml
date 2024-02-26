@@ -16,8 +16,8 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
+          git config --global user.email "313658356@qq.com"
+          git config --global user.name "Hazel0928"
           git add -A
           git commit -m "Automated update" || exit 0  # This will exit with 0 if there's nothing to commit
           git push
